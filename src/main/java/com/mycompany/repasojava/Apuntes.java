@@ -2,10 +2,36 @@ package com.mycompany.repasojava;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.Map;
+import java.util.Queue;
+import java.util.Stack;
 import java.util.TreeMap;
 
 public class Apuntes {
+
+    String Titulo, autor;
+
+    public Apuntes(String Titulo, String autor) {
+        this.Titulo = Titulo;
+        this.autor = autor;
+    }
+
+    public String getTitulo() {
+        return Titulo;
+    }
+
+    public void setTitulo(String Titulo) {
+        this.Titulo = Titulo;
+    }
+
+    public String getAutor() {
+        return autor;
+    }
+
+    public void setAutor(String autor) {
+        this.autor = autor;
+    }
 
     public static void main(String[] args) {
 
@@ -49,6 +75,28 @@ public class Apuntes {
         while (iter.hasNext()) {
             String elemento = iter.next();
             System.out.println(elemento);
+        }
+
+        Queue<Integer> cola = new LinkedList<>();
+
+        cola.add(3);
+
+        cola.remove(1);
+
+        Stack<Apuntes> pila = new Stack<Apuntes>();
+
+        Apuntes l1 = new Apuntes("Título 1", "Autor 1");
+        Apuntes l2 = new Apuntes("Título 2", "Autor 2");
+        Apuntes l3 = new Apuntes("Título 3", "Autor 3");
+
+        pila.push(l1); // adiciona un libro a la pila
+        pila.push(l2);
+        pila.push(l3);
+
+        System.out.println(pila.peek().getTitulo()); // Lee el último elemento adicionado
+
+        while (!pila.isEmpty()) { // mostrar pila completa
+            System.out.println(pila.pop().getTitulo()); // Lee y extrae un elemento de la pila
         }
 
     }
